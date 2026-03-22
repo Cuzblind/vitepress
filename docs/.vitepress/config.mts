@@ -7,42 +7,56 @@ const base = repository && !isUserSite ? `/${repository}/` : '/'
 export default defineConfig({
   base,
   lang: 'zh-CN',
-  title: 'OpenToken 中转站',
-  description: 'OpenToken API 中转服务使用文档',
+  title: 'OpenToken 教程中心',
+  description: 'OpenToken / kit.xin 中文教程站，覆盖 API Key、通用配置步骤、CLI 配置、第三方使用与常见问题。',
   cleanUrls: true,
   lastUpdated: true,
   head: [
-    ['meta', { name: 'theme-color', content: '#0f766e' }],
+    ['meta', { name: 'theme-color', content: '#d96b22' }],
     ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0' }]
   ],
   themeConfig: {
     nav: [
       { text: '首页', link: '/' },
-      { text: '快速入门', link: '/intro' },
-      { text: '定价', link: '/pricing' },
-      { text: 'API 文档', link: '/api' },
-      { text: '充值教程', link: '/recharge' },
-      { text: '常见问题', link: '/faq' }
+      { text: '快速开始', link: '/quick-start/overview' },
+      { text: 'CLI / 客户端配置', link: '/cli/cc-switch' },
+      { text: '第三方使用', link: '/third-party/curl' },
+      { text: '常见问题', link: '/faq/' }
     ],
     sidebar: [
       {
-        text: '开始使用',
+        text: '快速开始',
         items: [
-          { text: '站点介绍', link: '/intro' },
-          { text: '定价方案', link: '/pricing' },
-          { text: '充值教程', link: '/recharge' }
+          { text: 'OpenToken 简介', link: '/quick-start/overview' },
+          { text: 'API Key 管理', link: '/quick-start/api-key' },
+          { text: '通用配置步骤（一定要看）', link: '/quick-start/common-steps' }
         ]
       },
       {
-        text: '开发接入',
+        text: 'CLI / 客户端配置',
         items: [
-          { text: 'API 文档', link: '/api' },
-          { text: '常见问题', link: '/faq' }
+          { text: 'CC-Switch 配置', link: '/cli/cc-switch' },
+          { text: 'Claude Code 配置', link: '/cli/claude-code' },
+          { text: 'Codex 配置', link: '/cli/codex' },
+          { text: 'Codex 相关疑问', link: '/cli/codex-faq' },
+          { text: 'Gemini 模型配置', link: '/cli/gemini' }
         ]
       },
       {
-        text: '支持',
-        items: [{ text: '联系我们', link: '/contact' }]
+        text: '第三方使用',
+        items: [
+          { text: 'Curl 调用示例', link: '/third-party/curl' },
+          { text: 'OpenCode', link: '/third-party/opencode' },
+          { text: 'Droid', link: '/third-party/droid' },
+          { text: 'OpenClaw', link: '/third-party/openclaw' }
+        ]
+      },
+      {
+        text: '常见问题',
+        items: [
+          { text: '全站 FAQ', link: '/faq/' },
+          { text: '联系我们', link: '/contact' }
+        ]
       }
     ],
     socialLinks: [
@@ -53,7 +67,7 @@ export default defineConfig({
     },
     outline: {
       level: [2, 3],
-      label: '本页目录'
+      label: '此页内容'
     },
     docFooter: {
       prev: '上一页',
@@ -63,7 +77,7 @@ export default defineConfig({
       text: '最后更新于'
     },
     footer: {
-      message: 'Powered by VitePress',
+      message: 'OpenToken 教程中心',
       copyright: 'Copyright © 2026 OpenToken'
     }
   }

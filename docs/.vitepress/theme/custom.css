@@ -1,0 +1,203 @@
+:root {
+  --vp-c-brand-1: #d96b22;
+  --vp-c-brand-2: #eb8443;
+  --vp-c-brand-3: #f5a46d;
+  --vp-c-brand-soft: rgba(217, 107, 34, 0.12);
+  --ot-border: rgba(194, 117, 60, 0.18);
+  --ot-border-strong: rgba(194, 117, 60, 0.32);
+  --ot-surface: linear-gradient(180deg, rgba(255, 249, 244, 0.98), rgba(255, 253, 251, 0.98));
+  --ot-shadow: 0 18px 44px rgba(173, 104, 52, 0.08);
+  --ot-text: #473526;
+  --ot-muted: #7d6652;
+}
+
+.vp-doc h1 {
+  letter-spacing: -0.03em;
+}
+
+.vp-doc .ot-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 2.2fr) minmax(280px, 1fr);
+  gap: 18px;
+  margin: 24px 0 32px;
+}
+
+.vp-doc .ot-hero-copy,
+.vp-doc .ot-hero-side,
+.vp-doc .ot-card,
+.vp-doc .ot-contact,
+.vp-doc .ot-shot {
+  border: 1px solid var(--ot-border);
+  background: var(--ot-surface);
+  border-radius: 22px;
+  box-shadow: var(--ot-shadow);
+}
+
+.vp-doc .ot-hero-copy {
+  padding: 28px;
+}
+
+.vp-doc .ot-hero-side {
+  padding: 22px 24px;
+}
+
+.vp-doc .ot-eyebrow,
+.vp-doc .ot-kicker,
+.vp-doc .ot-contact-label,
+.vp-doc .ot-shot figcaption {
+  color: var(--vp-c-brand-1);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.vp-doc .ot-lead {
+  margin: 0;
+  color: var(--ot-text);
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+.vp-doc .ot-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.vp-doc .ot-badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  padding: 0 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(217, 107, 34, 0.16);
+  color: var(--ot-text);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.vp-doc .ot-side-title {
+  margin: 0 0 14px;
+  color: var(--ot-text);
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.vp-doc .ot-side-list {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--ot-muted);
+  line-height: 1.9;
+}
+
+.vp-doc .ot-grid {
+  display: grid;
+  gap: 16px;
+  margin: 18px 0 26px;
+}
+
+.vp-doc .ot-grid-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.vp-doc .ot-grid-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.vp-doc .ot-card,
+.vp-doc .ot-contact-link {
+  display: block;
+  padding: 22px;
+  color: inherit;
+  text-decoration: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.vp-doc .ot-card:hover,
+.vp-doc .ot-contact-link:hover {
+  border-color: var(--ot-border-strong);
+  box-shadow: 0 20px 44px rgba(173, 104, 52, 0.12);
+  transform: translateY(-1px);
+}
+
+.vp-doc .ot-card-top h3 {
+  margin: 0;
+  color: var(--ot-text);
+  font-size: 20px;
+  line-height: 1.3;
+}
+
+.vp-doc .ot-card p,
+.vp-doc .ot-contact p {
+  margin: 10px 0 0;
+  color: var(--ot-muted);
+  line-height: 1.8;
+}
+
+.vp-doc .ot-card code {
+  white-space: nowrap;
+}
+
+.vp-doc .ot-contact {
+  padding: 20px 22px;
+}
+
+.vp-doc .ot-contact-value {
+  color: var(--ot-text);
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.vp-doc .ot-shot {
+  margin: 18px 0 24px;
+  padding: 16px;
+}
+
+.vp-doc .ot-shot img {
+  width: 100%;
+  border-radius: 14px;
+}
+
+.vp-doc .ot-shot figcaption {
+  margin-top: 10px;
+}
+
+@media (max-width: 1080px) {
+  .vp-doc .ot-hero,
+  .vp-doc .ot-grid-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .vp-doc .ot-grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .vp-doc .ot-hero-copy,
+  .vp-doc .ot-hero-side,
+  .vp-doc .ot-card,
+  .vp-doc .ot-contact,
+  .vp-doc .ot-shot {
+    border-radius: 18px;
+  }
+
+  .vp-doc .ot-hero-copy {
+    padding: 22px;
+  }
+
+  .vp-doc .ot-lead {
+    font-size: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vp-doc .ot-card,
+  .vp-doc .ot-contact-link {
+    transition: none;
+  }
+}
