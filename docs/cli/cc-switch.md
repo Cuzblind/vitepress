@@ -1,71 +1,345 @@
-# CC-Switch 配置
+# CC-Switch 使用教程
 
-CC-Switch 最适合不想手改配置文件、同时又会在 Claude、Codex、Gemini 之间切换的人。
+## CC-Switch 介绍
 
-## 什么是 CC-Switch
+### Claude Code / Codex / Gemini CLI 全方位辅助工具
 
-它可以统一管理常见终端 AI 工具的供应商配置，让你不用每次都手工改 `config.toml`、`settings.json` 或环境变量。
+[![Version](https://img.shields.io/badge/version-3.7.1-blue.svg)](https://github.com/farion1231/cc-switch/releases)
+[![Trending](https://img.shields.io/badge/%F0%9F%94%A5_TypeScript_Trending-Daily%20|%20Weekly%20|%20Monthly-ff6b6b.svg)](https://github.com/trending/typescript)
+[![Platform](https://img.shields.io/badge/platform-Windows%20|%20macOS%20|%20Linux-lightgrey.svg)](https://github.com/farion1231/cc-switch/releases)
+[![Built with Tauri](https://img.shields.io/badge/built%20with-Tauri%202-orange.svg)](https://tauri.app/)
 
-## 最短可用步骤
+[更新日志](https://github.com/farion1231/cc-switch/blob/main/CHANGELOG.md) | [下载地址](https://github.com/farion1231/cc-switch/releases/latest)
 
-1. 安装并打开 CC-Switch。
-2. 先选择你要配置的 CLI 标签。
-3. 点击“添加供应商”。
-4. 推荐分别建立两个供应商：
-   - `OpenToken Claude`
-   - `OpenToken OpenAI`
-5. 配置完成后，确认当前供应商显示为“使用中”。
+**从供应商切换器到 AI CLI 一体化管理平台**
 
-<figure class="ot-shot">
-  <img src="/images/tutorial/cc-switch-start.webp" alt="CC-Switch 首次添加供应商示意图">
-  <figcaption>先选对应 CLI，再点击添加供应商</figcaption>
-</figure>
+**统一管理 Claude Code、Codex 与 Gemini CLI 的供应商配置、MCP 服务器、Skills 扩展和系统提示词。**
 
-## 推荐建立的两个供应商
+使用 CC-Switch，您可以：
 
-### OpenToken Claude
+- ✅ 一键切换 API 配置 - 在多个 API 提供商之间快速切换
+- ✅ 可视化配置管理 - 通过图形界面轻松管理所有配置
+- ✅ MCP 服务器管理 - 管理 Model Context Protocol 服务器
+- ✅ 系统托盘快捷操作 - 通过托盘菜单快速切换
 
-```text
-名称: OpenToken Claude
-Base URL: https://kit.xin
-API Key: sk-你的Key
-默认模型: claude-sonnet-4-6
+## 软件下载
+
+### Windows
+
+- 点击下载链接→[传送门](https://github.com/farion1231/cc-switch/releases/latest)←，进入CC-Switch的Github Release页面
+- 鼠标滚动到最下方选择适合自己版本的安装包，windows系统推荐下载普通msi后缀的安装包进行安装
+
+![下载页面](/images/tutorial/githubccs.webp)
+
+- 安装后运行CC-Switch主程序，界面如下。
+
+![CC-Switch界面](/images/tutorial/image-20260324215714678.png)
+
+### MacOS
+
+- MacOS安装推荐使用HomeBrew
+- 开启终端后，分别运行以下命令：
+
+```bash
+# 添加 tap 源
+brew tap farion1231/ccswitch
+
+# 安装 CC-Switch
+brew install --cask cc-switch
 ```
 
-### OpenToken OpenAI
+- 安装完成后，在"启动台"或"应用程序"文件夹中找到 CC-Switch 并启动。
 
-```text
-名称: OpenToken OpenAI
-Base URL: https://kit.xin/v1
-API Key: sk-你的Key
-默认模型: gpt-5.2-codex
+![MacOS CC-Switch](/images/tutorial/image-20260324220532976.png)
+
+### Linux
+
+以下命令中的文件名包含占位符版本号 x.x.x，请访问[GitHub Releases](https://github.com/farion1231/cc-switch/releases/latest) 页面查看最新版本，并替换为实际的版本号和完整文件名。
+
+Debian/Ubuntu 系统：
+
+```bash
+# 下载 .deb 包
+wget https://github.com/farion1231/cc-switch/releases/latest/download/cc-switch_x.x.x_amd64.deb
+
+# 安装
+sudo dpkg -i cc-switch_x.x.x_amd64.deb
 ```
 
-## 为什么建议分成两个供应商
+## Claude Code 配置
 
-因为你最容易填错的不是 API Key，而是协议。
+1. [OpenToken](https://kit.xin/)控制台可以自动配置ccswitch，点击令牌管理，按下图图示点击：
 
-## 模型怎么切
+![令牌管理配置](/images/tutorial/image-20260324224413455.png)
 
-### Claude
+2. 填入模型，点击打开ccswitch。
 
-- `claude-sonnet-4-6`
-- `claude-opus-4-6`
-- `claude-haiku-4-5-20251001`
+![填入模型](/images/tutorial/image-20260324230623381.png)
 
-### OpenAI 兼容
+3. 这样跳转之后就自动配置好了。
 
-- `gpt-5.2-codex`
-- `gpt-5.3-codex`
-- `gpt-5.4`
-- `gemini-3.1-pro-preview`
+![自动配置完成](/images/tutorial/image-20260324230830811.png)
 
-## 常见问题
+4. 点击左上角"设置"按钮，在通用页面下拉找到 `跳过 Claude Code初次安装确认`，务必勾选
 
-### 建一个供应商，把所有模型都塞进去可以吗
+![设置页面](/images/tutorial/image-20260324231021685.png)
 
-不推荐。长期看一定会把协议弄混。
+5. 在终端运行 `claude`，看到对话界面并能正常回复即表示配置完成
 
-### 切完供应商，客户端还是旧配置
+![Claude Code运行](/images/tutorial/image-20260324231124411.png)
 
-很多客户端需要完全重启。
+## Codex 配置
+
+也是与上方Claude code同理，网站可以自动配置
+
+1. 添加成功后，在主界面会看到我们配置的分组，在右侧点击"启用"按钮，显示"使用中"，则配置完成
+
+![Codex启用](/images/tutorial/image-20260324231347546.png)
+
+2. 在终端运行 `codex`，看到对话界面并能正常回复即表示配置完成
+
+![Codex运行](/images/tutorial/image-20260324231638067.png)
+
+## Gemini 配置
+
+与上方Claude code同理，网站可以自动配置
+
+1. 添加成功后，在主界面会看到我们配置的分组，在右侧点击"启用"按钮，显示"使用中"，则配置完成
+
+![Gemini启用](/images/tutorial/image-20260324231518106.png)
+
+2. 在终端运行 `gemini`，看到对话界面并能正常回复即表示配置完成
+
+![Gemini运行](/images/tutorial/image-20260324231714786.png)
+
+## CC Switch CLI 使用
+
+::: tip 推荐
+**推荐在服务器环境或MacOS系统下使用 CC Switch CLI**
+:::
+
+### CC-Switch CLI
+
+[![Version](https://img.shields.io/badge/version-4.7.2-blue.svg)](https://github.com/saladday/cc-switch-cli/releases)
+[![Platform](https://img.shields.io/badge/platform-Windows%20|%20macOS%20|%20Linux-lightgrey.svg)](https://github.com/saladday/cc-switch-cli/releases)
+[![Built with Rust](https://img.shields.io/badge/built%20with-Rust-orange.svg)](https://www.rust-lang.org/)
+
+**Claude Code、Codex 与 Gemini CLI 的命令行管理工具**
+
+统一管理 Claude Code、Codex 与 Gemini CLI 的供应商配置、MCP 服务器、Skills 扩展和系统提示词。
+
+![CC-Switch CLI](/images/tutorial/ccswitch cli.png)
+
+### 下载与安装
+
+#### MacOS
+
+```bash
+# 下载 Universal Binary（推荐，支持 Apple Silicon + Intel）
+curl -LO https://github.com/saladday/cc-switch-cli/releases/latest/download/cc-switch-cli-darwin-universal.tar.gz
+
+# 解压
+tar -xzf cc-switch-cli-darwin-universal.tar.gz
+
+# 添加执行权限
+chmod +x cc-switch
+
+# 移动到 PATH
+sudo mv cc-switch /usr/local/bin/
+
+# 如遇 "无法验证开发者" 提示
+xattr -cr /usr/local/bin/cc-switch
+```
+
+#### Linux (x64)
+
+```bash
+# 下载
+curl -LO https://github.com/saladday/cc-switch-cli/releases/latest/download/cc-switch-cli-linux-x64-musl.tar.gz
+
+# 解压
+tar -xzf cc-switch-cli-linux-x64-musl.tar.gz
+
+# 添加执行权限
+chmod +x cc-switch
+
+# 移动到 PATH
+sudo mv cc-switch /usr/local/bin/
+```
+
+#### Linux (ARM64)
+
+```bash
+# 适用于树莓派或 ARM 服务器
+curl -LO https://github.com/saladday/cc-switch-cli/releases/latest/download/cc-switch-cli-linux-arm64-musl.tar.gz
+tar -xzf cc-switch-cli-linux-arm64-musl.tar.gz
+chmod +x cc-switch
+sudo mv cc-switch /usr/local/bin/
+```
+
+#### Windows
+
+```bash
+# 下载 zip 文件
+# https://github.com/saladday/cc-switch-cli/releases/latest/download/cc-switch-cli-windows-x64.zip
+
+# 解压后将 cc-switch.exe 移动到 PATH 目录，例如：
+move cc-switch.exe C:\Windows\System32\
+
+# 或者直接运行
+.\cc-switch.exe
+```
+
+### 命令列表
+
+#### 常用命令
+
+```bash
+cc-switch provider list              # 列出供应商
+cc-switch provider switch <id>       # 切换供应商
+cc-switch mcp sync                   # 同步 MCP 服务器
+
+# 使用全局 `--app` 参数来指定目标应用：
+cc-switch --app claude provider list    # 管理 Claude 供应商
+cc-switch --app codex mcp sync          # 同步 Codex MCP 服务器
+cc-switch --app gemini prompts list     # 列出 Gemini 提示词
+
+# 支持的应用：`claude`（默认）、`codex`、`gemini`
+```
+
+#### 供应商管理
+
+> 管理 Claude Code、Codex 和 Gemini 的 API 配置。
+> 功能：一键切换、多端点支持、API 密钥管理、速度测试、供应商复制。
+
+```bash
+cc-switch provider list              # 列出所有供应商
+cc-switch provider current           # 显示当前供应商
+cc-switch provider switch <id>       # 切换供应商
+cc-switch provider add               # 添加新供应商
+cc-switch provider edit <id>         # 编辑现有供应商
+cc-switch provider duplicate <id>    # 复制供应商
+cc-switch provider delete <id>       # 删除供应商
+cc-switch provider speedtest <id>    # 测试 API 延迟
+```
+
+#### MCP 服务器管理
+
+> 跨 Claude/Codex/Gemini 管理模型上下文协议服务器。
+> 功能：统一管理、多应用支持、三种传输类型（stdio/http/sse）、自动同步、智能 TOML 解析器。
+
+```bash
+cc-switch mcp list                   # 列出所有 MCP 服务器
+cc-switch mcp add                    # 添加新 MCP 服务器（交互式）
+cc-switch mcp edit <id>              # 编辑 MCP 服务器
+cc-switch mcp delete <id>            # 删除 MCP 服务器
+cc-switch mcp enable <id> --app claude   # 为特定应用启用
+cc-switch mcp disable <id> --app claude  # 为特定应用禁用
+cc-switch mcp validate <command>     # 验证命令在 PATH 中
+cc-switch mcp sync                   # 同步到实时文件
+cc-switch mcp import --app claude    # 从实时配置导入
+```
+
+#### Prompts 管理
+
+> 管理 AI 编码助手的系统提示词预设。
+> 跨应用支持：Claude (CLAUDE.md)、Codex (AGENTS.md)、Gemini (GEMINI.md)。
+
+```bash
+cc-switch prompts list               # 列出提示词预设
+cc-switch prompts current            # 显示当前活动提示词
+cc-switch prompts activate <id>      # 激活提示词
+cc-switch prompts deactivate         # 停用当前激活的提示词
+cc-switch prompts create             # 创建新提示词预设
+cc-switch prompts edit <id>          # 编辑提示词预设
+cc-switch prompts show <id>          # 显示完整内容
+cc-switch prompts delete <id>        # 删除提示词
+```
+
+#### Skills 管理
+
+> 通过社区技能扩展 Claude Code/Codex/Gemini 的能力。
+> 功能：SSOT 技能仓库、多应用启用/禁用、同步到应用目录、扫描/导入未管理技能、仓库发现。
+
+```bash
+cc-switch skills list                # 列出已安装技能
+cc-switch skills search <query>      # 搜索可用技能
+cc-switch skills install <name>      # 安装技能
+cc-switch skills uninstall <name>    # 卸载技能
+cc-switch skills enable <name>       # 为当前应用启用（配合 --app）
+cc-switch skills disable <name>      # 为当前应用禁用（配合 --app）
+cc-switch skills info <name>         # 显示技能信息
+cc-switch skills sync                # 同步已启用技能到应用目录
+cc-switch skills sync-method [m]     # 查看/设置同步方式（auto|symlink|copy）
+cc-switch skills scan-unmanaged      # 扫描未管理技能
+cc-switch skills import-from-apps    # 导入未管理技能到 SSOT
+cc-switch skills repos list          # 查看仓库列表
+cc-switch skills repos add <repo>    # 添加仓库（owner/name[@branch] 或 GitHub URL）
+cc-switch skills repos remove <repo> # 移除仓库（owner/name 或 GitHub URL）
+```
+
+#### 配置管理
+
+> 管理配置文件的备份、导入和导出。
+> 功能：自定义备份命名、交互式备份选择、自动轮换（保留 10 个）、导入/导出。
+
+```bash
+cc-switch config show                # 显示配置
+cc-switch config path                # 显示配置文件路径
+cc-switch config validate            # 验证配置文件
+
+# 通用配置片段（跨所有供应商共享设置）
+cc-switch --app claude config common show
+cc-switch --app claude config common set --json '{"env":{"CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC":1},"includeCoAuthoredBy":false}' --apply
+cc-switch --app claude config common clear --apply
+
+# 备份
+cc-switch config backup              # 创建备份（自动命名）
+cc-switch config backup --name my-backup  # 创建备份（自定义名称）
+
+# 恢复
+cc-switch config restore             # 交互式：从备份列表选择
+cc-switch config restore --backup <id>    # 通过 ID 恢复特定备份
+cc-switch config restore --file <path>    # 从外部文件恢复
+
+# 导入/导出
+cc-switch config export <path>       # 导出到外部文件
+cc-switch config import <path>       # 从外部文件导入
+
+cc-switch config reset               # 重置为默认配置
+```
+
+### 配置 OpenToken
+
+这里以claude code的配置为例，codex与gemini配置同理
+
+1. 安装好CC Switch CLI后，在终端运行以下命令进入TUI界面
+
+```bash
+cc-switch
+```
+
+2. 下拉在左侧选择 `Providers`，回车选中，并按下 `a` 键，进入供应商添加页面
+
+![TUI界面](/images/tutorial/image-20260324234520177.png)
+
+**第三步：添加自定义中转站**
+
+- 选择 **Custom**（自定义）
+
+![选择Custom](/images/tutorial/image-20260324233544831.png)
+
+**第四步：输入 API 信息（按底部提示依次输入）**
+
+此时终端底部会依次弹出输入框，请根据你的中转站信息填写：
+
+1. **Name (配置名称)**：随便起个好记的名字，例如输入 MyClaude，按回车。
+2. **Base URL (网关/接口地址)**：输入中转站的 API 地址（https://kit.xin/），按回车。
+3. **API Key (令牌密钥)**：粘贴你的中转站 Token（sk- 开头），按回车。
+
+**第五步：一键启用 (Enable)**
+
+- 保存成功后，界面会退回到配置列表页。
+- 使用方向键选中你刚才创建的 **MyProxy**，按下回车。
+- 在弹出的次级菜单中选择 **Enable (启用 / 切换到该配置)**。
+- 此时屏幕会提示切换成功（通常会有绿色的 Success 提示），旧的配置也会被自动备份。

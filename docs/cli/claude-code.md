@@ -1,98 +1,115 @@
 # Claude Code 配置
 
-Claude Code 最适合优先走 Anthropic 接口，也就是把 Base URL 设为 `https://kit.xin`。
+## 环境检查
 
-## 先说结论
+### （1）确认 Nodejs 环境已安装
 
-```text
-API Key: sk-你的Key
-Base URL: https://kit.xin
-Model: claude-sonnet-4-6
-```
-
-## 最短可用步骤
-
-1. 先完成 [API Key 管理](/quick-start/api-key)。
-2. 推荐优先使用 [CC-Switch 配置](/cli/cc-switch)。
-3. 如果你想手动配置，再去编辑 `~/.claude/settings.json`。
-4. 默认模型先填 `claude-sonnet-4-6`。
-5. 保存后完全重启 Claude Code。
-
-## 配置文件位置
-
-| 作用域 | 路径 |
-| --- | --- |
-| 用户级 | `~/.claude/settings.json` |
-| 项目级 | `.claude/settings.json` |
-| 本地项目级 | `.claude/settings.local.json` |
-
-Windows 用户通常对应到：
-
-```text
-%USERPROFILE%\.claude\settings.json
-```
-
-<figure class="ot-shot">
-  <img src="/images/tutorial/windows-claude-folder.webp" alt="Windows 下 .claude 目录示意图">
-  <figcaption>Windows 下查找 .claude 目录的示意图</figcaption>
-</figure>
-
-## 推荐做法一：优先使用 CC-Switch
-
-在 CC-Switch 中建立：
-
-```text
-Name: OpenToken Claude
-Base URL: https://kit.xin
-API Key: sk-你的Key
-Default Model: claude-sonnet-4-6
-```
-
-## 做法二：手动设置环境变量
-
-### macOS / Linux
+1. 在 windows 或 MacOS 终端输入以下命令
 
 ```bash
-export ANTHROPIC_API_KEY="sk-你的Key"
-export ANTHROPIC_BASE_URL="https://kit.xin"
+npm list -g --depth=0
 ```
 
-### Windows PowerShell
+正常情况应该是如下图所示（没有任何内容也没关系），如果提示"命令未找到"，则说明你没有安装 Nodejs，你需要按 [此教程](https://www.runoob.com/nodejs/nodejs-install-setup.html) 来安装运行 Claude Code、Codex、Gemini 所需的环境
 
-```powershell
-$env:ANTHROPIC_API_KEY = "sk-你的Key"
-$env:ANTHROPIC_BASE_URL = "https://kit.xin"
+![npm检查](/images/tutorial/image-20260324234819928.png)
+
+2. 如果你发现自己没有安装 Nodejs，并且跟着教程目前已经安装完毕，请你重新执行上述提到的命令，如果不再提示"命令未找到"，则说明安装成功
+
+### （2）安装 CLI
+
+1. 在 windows 或 MacOS 终端输入以下命令，一次性安装好我们目前所需的所有终端
+
+```bash
+npm i -g @anthropic-ai/claude-code@latest
+npm i -g @openai/codex@latest
+npm i -g @google/gemini-cli@latest
 ```
 
-## 做法三：在 `settings.json` 中固化环境变量
+![安装CLI](/images/tutorial/image-20260324234847694.png)
+
+### （3）测试安装成功
+
+::: warning 重要
+**这一步很重要，请你务必运行命令进行测试，因为这一步运行命令后，你的用户目录下才会生成各 CLI 的配置目录，方便后续操作！**
+:::
+
+**Claude Code**
+
+在 windows 或 MacOS 终端输入以下命令，若出现图示内容，或出现选项让你选择，则 Claude code 安装成功
+
+```bash
+claude
+```
+
+![Claude Code测试](/images/tutorial/image-20260324234914959.png)
+
+## Windows 配置
+
+1. 键盘按下"Win+R"键，输入以下内容后回车，打开 Claude Code 配置目录
+
+```
+%userprofile%\.claude
+```
+
+![打开配置目录](/images/tutorial/image-20260324235223575.png)
+
+2. 目录内容如图所示，如果目录中没有 `settings.json`，你需要手动创建后打开
+
+- **settings.json**：Claude 主要的配置文件，主要用来配置中转站地址以及 ApiKey，以及一些 hooks、plugins 等
+
+3. 将以下内容写入 `settings.json`
 
 ```json
 {
   "env": {
-    "ANTHROPIC_API_KEY": "sk-你的Key",
-    "ANTHROPIC_BASE_URL": "https://kit.xin"
+    "ANTHROPIC_BASE_URL": "https://kit.xin/",
+    "ANTHROPIC_AUTH_TOKEN": "xxx",
+    "CLAUDE_CODE_ATTRIBUTION_HEADER": "0"
   }
 }
 ```
 
-如果你的当前版本对自定义 Base URL 行为不稳定，优先改回 CC-Switch。
+4. 回顾 创建 API 令牌，在 OpenToken 中创建分组的令牌，替换上方 `xxx` 部分
 
-## 如何改模型
+![复制API Key](/images/tutorial/image-20260324235503710.png)
 
-- 默认：`claude-sonnet-4-6`
-- 更强：`claude-opus-4-6`
-- 更快：`claude-haiku-4-5-20251001`
+5. 在 windows 终端运行 `claude`，出现对话界面后进行对话测试，能收到回复即表示配置成功
 
-## 常见问题
+![Claude Code运行](/images/tutorial/image-20260324235825627.png)
 
-### 只设置了 API Key，没有设置 Base URL
+## MacOS 配置
 
-这样通常不会走 OpenToken。
+1. 在访达界面按下 "Command+Shift+G"，输入以下路径后回车，打开配置目录
 
-### 改了配置文件还是没变化
+```
+~/.claude
+```
 
-优先检查：
+![MacOS配置目录](/images/tutorial/image-20260324235905854.png)
 
-1. 你改的是用户级配置还是项目级配置
-2. 是否被项目目录下的 `.claude/settings.local.json` 覆盖
-3. 客户端是否已经完全重启
+2. 若目录不存在 `settings.json`，需要你手动进行创建
+
+- **settings.json**：Claude 主要的配置文件，主要用来配置中转站地址以及 ApiKey，以及一些 hooks、plugins 等
+
+![MacOS settings.json](/images/tutorial/image-20260324235939042.png)
+
+3. 将以下内容写入 `settings.json`
+
+```json
+{
+  "env": {
+    "ANTHROPIC_BASE_URL": "https://kit.xin/",
+    "ANTHROPIC_AUTH_TOKEN": "xxx",
+    "CLAUDE_CODE_ATTRIBUTION_HEADER": "0"
+  }
+}
+```
+
+4. 回顾 创建 API 令牌，在 OpenToken 中创建分组的令牌，替换上方 `xxx`
+
+![MacOS API Key](/images/tutorial/image-20260325000202612.png)
+
+5. 在终端运行 `claude`，看到对话界面并能正常回复即表示配置完成
+
+![MacOS Claude Code运行](/images/tutorial/image-20260325000242486.png)

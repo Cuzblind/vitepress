@@ -1,69 +1,61 @@
-# Gemini 模型配置
+# Gemini 配置
 
-在 OpenToken 中，Gemini 模型默认按 OpenAI 兼容接口接入，而不是按 Google 原生接口接入。
+## Windows 配置
 
-## 先说结论
+1. 键盘按下"Win+R"，输入以下内容后回车，打开 Gemini CLI 配置目录
 
-```text
-Base URL: https://kit.xin/v1
-API Key: sk-你的Key
+```
+%userprofile%\.gemini
 ```
 
-## 推荐模型
+![打开配置目录](/images/tutorial/image-20260325003226894.png)
 
-- `gemini-3.1-pro-preview`
-- `gemini-3-flash-preview`
-- `gemini-3.1-flash-lite-preview`
+2. 如果目录下没有 `.env` 文件，请新建一个 `.env`，写入以下内容
 
-## 适合放在哪些客户端里使用
+- **.env**：Gemini CLI 的配置文件，主要设置自定义端点、ApiKey 跟所用模型
 
-- CC-Switch
-- Codex 风格客户端
-- OpenCode
-- Droid
-- OpenClaw
+![.env配置](/images/tutorial/image-20260325003337813.png)
 
-## 在 CC-Switch 中使用 Gemini
-
-直接把 Gemini 模型放到：
-
-```text
-OpenToken OpenAI
+```env
+GOOGLE_GEMINI_BASE_URL=https://kit.xin/
+GEMINI_API_KEY=xxx
+GEMINI_MODEL=gemini-3-pro-preview
 ```
 
-这个供应商下即可。
+3. 回顾 创建 API 令牌，在 OpenToken 中创建 **Gemini** 分组令牌，并复制 ApiKey 后填入 `xxx`
 
-## 在支持配置文件的客户端中使用 Gemini
+![Gemini API Key](/images/tutorial/image-20260325003530493.png)
 
-核心思路不变：
+4. 打开终端执行 `gemini`，看到交互界面并能正常回复即表示配置成功
 
-```json
-{
-  "baseURL": "https://kit.xin/v1",
-  "apiKey": "sk-你的Key",
-  "model": "gemini-3.1-pro-preview"
-}
+![Gemini运行](/images/tutorial/image-20260325003609504.png)
+
+## MacOS 配置
+
+1. 按下 "Command+Shift+G"，输入以下路径后回车，打开配置目录
+
+```
+~/.gemini
 ```
 
-## Windows 下本地 Gemini 目录示意
+![MacOS配置目录](/images/tutorial/image-20260325003634073.png)
 
-如果你本机同时安装过 Gemini 相关 CLI，Windows 下常见的本地目录会在：
+2. 若目录中没有 `.env` 文件，创建并写入以下内容
 
-```text
-%USERPROFILE%\.gemini
+- **.env**：Gemini CLI 的配置文件，主要设置自定义端点、ApiKey 跟所用模型
+
+![MacOS .env配置](/images/tutorial/image-20260325003706673.png)
+
+```env
+GOOGLE_GEMINI_BASE_URL=https://kit.xin/
+GEMINI_API_KEY=xxx
+GEMINI_MODEL=gemini-3-pro-preview
 ```
 
-<figure class="ot-shot">
-  <img src="/images/tutorial/windows-gemini-folder.webp" alt="Windows 下 .gemini 目录示意图">
-  <figcaption>Windows 下 .gemini 目录示意图</figcaption>
-</figure>
+3. 回顾 创建 API 令牌，在 OpenToken 中创建 **Gemini** 分组令牌，填入 `xxx`
 
-## 常见问题
+![MacOS Gemini API Key](/images/tutorial/image-20260325003530493.png)
 
-### 为什么 Gemini 不走 `https://kit.xin`
+4. 在终端运行 `gemini`，可正常进入对话并收到回复即表示配置完成
 
-因为在 OpenToken 当前这套文档里，Gemini 默认按 OpenAI 兼容方式接入。
-
-### Gemini 和 GPT 可以共用同一个 OpenAI 兼容供应商吗
-
-可以。只要 `base_url` 一样，差别通常只是 `model`。
+![MacOS Gemini运行](/images/tutorial/image-20260325003845607.png)

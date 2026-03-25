@@ -20,16 +20,15 @@ export default defineConfig({
       { text: '首页', link: '/' },
       { text: '快速开始', link: '/quick-start/overview' },
       { text: 'CLI / 客户端配置', link: '/cli/cc-switch' },
-      { text: '第三方使用', link: '/third-party/curl' },
+      { text: '第三方使用', link: '/third-party/aionui' },
       { text: '常见问题', link: '/faq/' }
     ],
     sidebar: [
       {
         text: '快速开始',
         items: [
-          { text: 'OpenToken 简介', link: '/quick-start/overview' },
-          { text: 'API Key 管理', link: '/quick-start/api-key' },
-          { text: '通用配置步骤（一定要看）', link: '/quick-start/common-steps' }
+          { text: '快速开始', link: '/quick-start/overview' },
+          { text: '模型分组介绍', link: '/quick-start/model-groups' }
         ]
       },
       {
@@ -38,23 +37,22 @@ export default defineConfig({
           { text: 'CC-Switch 配置', link: '/cli/cc-switch' },
           { text: 'Claude Code 配置', link: '/cli/claude-code' },
           { text: 'Codex 配置', link: '/cli/codex' },
-          { text: 'Codex 相关疑问', link: '/cli/codex-faq' },
-          { text: 'Gemini 模型配置', link: '/cli/gemini' }
+          { text: 'Gemini 配置', link: '/cli/gemini' }
         ]
       },
       {
         text: '第三方使用',
         items: [
-          { text: 'Curl 调用示例', link: '/third-party/curl' },
+          { text: 'AionUI', link: '/third-party/aionui' },
           { text: 'OpenCode', link: '/third-party/opencode' },
-          { text: 'Droid', link: '/third-party/droid' },
-          { text: 'OpenClaw', link: '/third-party/openclaw' }
+          { text: 'OpenClaw', link: '/third-party/openclaw' },
+          { text: 'Kilocode (VS Code 插件)', link: '/third-party/kilocode' }
         ]
       },
       {
         text: '常见问题',
         items: [
-          { text: '全站 FAQ', link: '/faq/' },
+          { text: 'Codex 相关问题', link: '/faq/codex' },
           { text: '联系我们', link: '/contact' }
         ]
       }

@@ -1,7 +1,7 @@
 # 全站 FAQ
 
-这一页收最常见的通用问题。  
-如果你主要用 Codex，也建议再看 [Codex 相关疑问](/cli/codex-faq)。
+这一页收最常见的通用问题。
+如果你主要用 Codex，也建议再看 [Codex 相关问题](/faq/codex)。
 
 ## 401 Unauthorized
 
@@ -37,12 +37,11 @@
 
 ## Curl 能通，客户端不能通
 
-大概率是客户端配置问题。  
+大概率是客户端配置问题。
 回到对应教程页继续排查即可。
 
 ## 遇到问题的最短排查路径
 
-1. 先看 [通用配置步骤（一定要看）](/quick-start/common-steps)
-2. 再看 [Curl 调用示例](/third-party/curl)
-3. 再看对应客户端页
-4. 最后再联系 [支持](/contact)
+1. 先看 [快速开始](/quick-start/overview)
+2. 再看对应客户端页
+3. 最后再联系 [支持](/contact)
